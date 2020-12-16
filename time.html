@@ -4,24 +4,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>时间简单显示</title>
   <style>
-    html,body{
-      font-size: 20px;
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .center{
+    html,body{
+      font-size: 100px;
+    }
+    .content{
       width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .center{
+      width: 100%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .title{
+      width: 100%;
       text-align: center;
-      font-size: 20em;
-      height: 0%;
+      font-size: 300%;
     }
     .date{
+      width: 100%;
       text-align: center;
-      font-size: 7em;
-      height: 0%;
     }
   </style>
 </head>
@@ -31,16 +45,16 @@
       <p class="title" id="time">00:00</p>
       <p class="date" id="date">01月01日 星期一</p>
     </div>
-    <script>
-      setInterval(() => {
-        console.log('?')
-        var date = new Date();
-        let timeShow = date.getHours() + ':' + date.getMinutes();
-        let dateShow = date.getMonth()+1 + '月' + date.getDate() + '日  星期' + ['日', '一', '二', '三', '四', '五', '六'][date.getDay()];
-        document.getElementById('time').innerText = timeShow;
-        document.getElementById('date').innerText = dateShow;
-      }, 1000);
-    </script>
   </div>
+  <script>
+    setInterval(() => {
+      console.log('?')
+      var date = new Date();
+      let timeShow = date.getHours() + ':' + date.getMinutes();
+      let dateShow = date.getMonth()+1 + '月' + date.getDate() + '日  星期' + ['日', '一', '二', '三', '四', '五', '六'][date.getDay()];
+      document.getElementById('time').innerText = timeShow;
+      document.getElementById('date').innerText = dateShow;
+    }, 1000);
+  </script>
 </body>
 </html>
