@@ -7,25 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>时间简单显示</title>
   <script>
-    // i = 750   ,   750代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;
-    // d = i / 100, 100代表换算比例，这里写100是为了以后好算;
-    // 比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等
-    // 当然了，要把这段js代码最好封装在一个单独的js文件里，并且放在所有的css文件引入之前加载。
-    !(function (n) {
-      let e = n.document,
-        t = e.documentElement,
-        i = 750,
-        d = i / 100,
-        o = 'orientationchange' in n ? 'orientationchange' : 'resize',
-        a = function () {
-          let n = t.clientWidth || 320
-          n > 750 && (n = 750)
-          t.style.fontSize = n / d + 'px'
-        }
-      e.addEventListener &&
-        (n.addEventListener(o, a, !1),
-          e.addEventListener('DOMContentLoaded', a, !1))
-    })(window)
+    // kindle 像素：601*784
   </script>
   <style>
     * {
@@ -34,9 +16,14 @@
       box-sizing: border-box;
     }
 
+    html,
+    body {
+      height: 100%;
+    }
+
     .content {
       width: 100%;
-      height: 100vh;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -55,13 +42,13 @@
     .title {
       width: 100%;
       text-align: center;
-      font-size: 4rem;
+      font-size: 200px;
     }
 
     .date {
       width: 100%;
       text-align: center;
-      font-size: 1rem;
+      font-size: 60px;
     }
   </style>
 </head>
