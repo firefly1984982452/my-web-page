@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .line {
+      width: 33%;
+      padding: 20px;
+      float: left;
+    }
+
+    .box {
+      width: 100%;
+      height: 400px;
+      border: 1px solid #fbb;
+      background-color: #bff;
+      background-image: url('./cute.png');
+    }
+
+    .round {
+      background-repeat: round;
+    }
+
+    .space {
+      background-repeat: space;
+    }
+
+    .no-repeat {
+      background-repeat: no-repeat;
+    }
+
+    .repeat-x {
+      background-repeat: repeat-x;
+    }
+
+    .repeat-y {
+      background-repeat: repeat-y;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="line">
+    <h1>repeat-默认</h1>
+    <div class="box"></div>
+  </div>
+  <div class="line">
+    <h1>repeat-round</h1>
+    <div class="box round"></div>
+  </div>
+  <div class="line">
+    <h1>repeat-space</h1>
+    <div class="box space"></div>
+  </div>
+  <div class="line">
+    <h1>repeat-no-repeat</h1>
+    <div class="box no-repeat"></div>
+  </div>
+  <div class="line">
+    <h1>repeat-repeat-x</h1>
+    <div class="box repeat-x"></div>
+  </div>
+  <div class="line">
+    <h1>repeat-repeat-y</h1>
+    <div class="box repeat-y"></div>
+  </div>
+</body>
+
+</html>
