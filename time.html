@@ -51,10 +51,10 @@
   <script>
     setInterval(function () {
       var date = new Date();
-      let min = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours();
-      let sec = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes();
-      let timeShow = min + ':' + sec;
-      let dateShow = date.getMonth() + 1 + '月' + date.getDate() + '日  星期' + ['日', '一', '二', '三', '四', '五', '六'][date
+      var min = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours();
+      var sec = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes();
+      var timeShow = min + ':' + sec;
+      var dateShow = date.getMonth() + 1 + '月' + date.getDate() + '日  星期' + ['日', '一', '二', '三', '四', '五', '六'][date
         .getDay()
       ];
       document.getElementById('time').innerText = timeShow;
