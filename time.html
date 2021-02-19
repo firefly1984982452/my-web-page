@@ -23,20 +23,8 @@
 
     .content {
       width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .center {
-      width: 100%;
-      height: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      margin-top: 50%;
+      transform: translateY(-50%);
     }
 
     .title {
@@ -61,7 +49,7 @@
     </div>
   </div>
   <script>
-    setInterval(() => {
+    setInterval(function () {
       var date = new Date();
       let min = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours();
       let sec = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes();
