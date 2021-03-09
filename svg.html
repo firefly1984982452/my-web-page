@@ -1,0 +1,248 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .title {
+        width: 100%;
+        color: #f00;
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .line {
+        width: 20%;
+        padding: 20px;
+        float: left;
+      }
+
+      .box {
+        border: 1px solid #000;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 100%;
+        height: 200px;
+      }
+      .rect {
+        fill: #fbb;
+        stroke-width: 5;
+        stroke: #f00;
+        fill-opacity: 0.1;
+        stroke-opacity: 0.9;
+        x: 20;
+        rx: 10;
+      }
+      .svg-line {
+        stroke-width: 5;
+        stroke: #f00;
+      }
+      .svg-polyline {
+        stroke: #bff;
+        stroke-width: 3;
+        fill: none;
+      }
+      .polygon {
+        stroke: #bfb;
+        stroke-width: 3;
+        fill: #bbf;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="title">svg所有组件</h1>
+    <div class="line">
+      <h1>rect【矩形】</h1>
+      <div class="box rect">
+        <svg>
+          <rect width="200" height="150" class="rect" opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>circle【圆形】</h1>
+      <div class="box">
+        <svg>
+          <circle cx="150" cy="70" r="70" fill="#fbf" stroke-width="5" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>ellipse【椭圆】</h1>
+      <div class="box">
+        <svg>
+          <ellipse cx="150" cy="70" rx="70" ry="50" fill="#bfb" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>line【直线】</h1>
+      <div class="box svg-line">
+        <svg>
+          <line x1="0" y1="0" x2="200" y2="200" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>polyline【曲线】</h1>
+      <div class="box svg-polyline">
+        <svg>
+          <polyline
+            points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
+            style="stroke: red"
+          />
+          <polyline points="20,20 40,25 60,40 80,120 120,140 200,180" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>path【路径】</h1>
+      <div class="box svg-path">
+        <svg>
+          <path d="M150 0 L74 200 L225 200 Z" />
+          <path stroke-dasharray="5,5" style="stroke: red" d="M5 20 l215 0" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>text【文字】</h1>
+      <div class="box svg-path">
+        <svg>
+          <defs>
+            <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
+          </defs>
+          <text x="10" y="100" style="fill: red">
+            <textPath xlink:href="#path1">I love SVG I love SVG</textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>polygon【多边形】</h1>
+      <div class="box polygon">
+        <svg>
+          <polygon points="220,10 300,210 170,250 123,234" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>circle【圆形】</h1>
+      <div class="box">
+        <svg width="100" height="100" viewBox="50 50 50 50">
+          <circle id="mycircle" cx="50" cy="50" r="50" />
+
+          <use href="#myCircle" x="10" y="0" fill="blue" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>-</h1>
+      <div class="box"></div>
+    </div>
+
+    <div class="line">
+      <h1>feGaussianBlur【模糊】</h1>
+      <div class="box rect">
+        <svg>
+          <defs>
+            <filter id="f1" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+            </filter>
+          </defs>
+          <rect
+            width="200"
+            height="150"
+            class="rect"
+            opacity="0.5"
+            filter="url(#f1)"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>feOffset【阴影】</h1>
+      <div class="box">
+        <svg>
+          <defs>
+            <filter id="f2" x="0" y="0" width="200%" height="200%">
+              <feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" />
+              <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+              <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+          </defs>
+          <circle
+            cx="150"
+            cy="70"
+            r="70"
+            fill="#fbf"
+            stroke-width="5"
+            filter="url(#f2)"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>linearGradient【线性渐变】</h1>
+      <div class="box">
+        <svg>
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop
+                offset="0%"
+                style="stop-color: rgb(255, 255, 0); stop-opacity: 1"
+              />
+              <stop
+                offset="100%"
+                style="stop-color: rgb(255, 0, 0); stop-opacity: 1"
+              />
+            </linearGradient>
+          </defs>
+          <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+        </svg>
+      </div>
+    </div>
+    <div class="line">
+      <h1>radialGradient【放射性渐变】</h1>
+      <div class="box">
+        <svg>
+          <defs>
+            <radialGradient
+              id="grad2"
+              cx="50%"
+              cy="50%"
+              r="50%"
+              fx="50%"
+              fy="50%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color: rgb(255, 255, 255); stop-opacity: 0"
+              />
+              <stop
+                offset="100%"
+                style="stop-color: rgb(0, 0, 255); stop-opacity: 1"
+              />
+            </radialGradient>
+          </defs>
+          <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad2)" />
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
