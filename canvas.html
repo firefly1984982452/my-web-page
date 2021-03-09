@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .title {
+        width: 100%;
+        color: #f00;
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .line {
+        width: 20%;
+        padding: 20px;
+        float: left;
+      }
+
+      .box {
+        border: 1px solid #000;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 100%;
+        height: 200px;
+      }
+      .rect {
+        border: 1px solid #fbb;
+      }
+      .svg-line {
+        stroke-width: 5;
+        stroke: #f00;
+      }
+      .svg-polyline {
+        stroke: #bff;
+        stroke-width: 3;
+        fill: none;
+      }
+      .polygon {
+        stroke: #bfb;
+        stroke-width: 3;
+        fill: #bbf;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="title">canvas所有组件</h1>
+    <div class="line">
+      <h1>rect【矩形】</h1>
+      <canvas class="box" id="rect"> </canvas>
+    </div>
+    <div class="line">
+      <h1>moveTo【路径】</h1>
+      <canvas class="box" id="moveTo"> </canvas>
+    </div>
+    <div class="line">
+      <h1>arc【圆形】</h1>
+      <canvas class="box" id="arc"> </canvas>
+    </div>
+    <div class="line">
+      <h1>text【文本】</h1>
+      <canvas class="box" id="text"> </canvas>
+    </div>
+    <div class="line">
+      <h1>polyline【曲线】</h1>
+      <canvas class="box" id=""> </canvas>
+    </div>
+    <div class="line">
+      <h1>path【路径】</h1>
+      <canvas class="box" id=""> </canvas>
+    </div>
+    <div class="line">
+      <h1>text【文字】</h1>
+      <canvas class="box" id=""> </canvas>
+    </div>
+    <div class="line">
+      <h1>-</h1>
+      <div class="box"></div>
+    </div>
+
+    <div class="line">
+      <h1>feGaussianBlur【模糊】</h1>
+      <canvas class="box" id=""> </canvas>
+    </div>
+    <script>
+      rectFn();
+      moveToFn();
+      arcFn();
+      textFn();
+
+      // rect【矩形】
+      function rectFn() {
+        let c = document.querySelector("#rect");
+        let ctx = c.getContext("2d");
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(10, 10, 150, 75);
+      }
+
+      // moveToFn【路径】
+      function moveToFn() {
+        let c = document.querySelector("#moveTo");
+        let ctx = c.getContext("2d");
+        ctx.moveTo(10, 10);
+        ctx.lineTo(200, 200);
+        ctx.stroke();
+      }
+
+      // arcFn【圆形】
+      function arcFn() {
+        let c = document.querySelector("#arc");
+        let ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(90, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+
+      // textFn【圆形】
+      function textFn() {
+        let c = document.querySelector("#text");
+        let ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.fillText("hello world", 10, 50);
+        ctx.strokeText("hello world", 20, 100);
+      }
+    </script>
+  </body>
+</html>
