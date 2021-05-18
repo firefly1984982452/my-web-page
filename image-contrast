@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义图片对比控件</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        border: 1px solid;
+        display: flex;
+      }
+      .img-box {
+        margin: auto;
+        position: relative;
+        width: 400px;
+        height: 400px;
+        display: inline-block;
+      }
+      img {
+        display: block;
+        width: 400px;
+        height: 400px;
+      }
+      .bg-box {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 40%;
+        overflow: hidden;
+      }
+      input {
+        position: absolute;
+        bottom: 5px;
+        width: 95%;
+        left: 2.5%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>自定义图片对比控件</h1>
+    <div class="box">
+      <div class="img-box">
+        <div class="bg-box" id="show">
+          <img class="bottom" src="https://wx2.sinaimg.cn/mw690/0069qZtTgy1gqmp3kbrbsj30dw0dwt9o.jpg" alt="" srcset="" />
+        </div>
+        <img class="top" src="https://wx3.sinaimg.cn/mw690/0069qZtTgy1gqmp3lukatj30ru0rsdlj.jpg" alt="" srcset="" />
+        <input id="slider" type="range" onmousemove="changeSlider()" />
+      </div>
+    </div>
+    <script>
+      let slider = document.getElementById("slider");
+      function changeSlider() {
+        console.log(slider.value);
+        let show = document.getElementById("show");
+        show.style.width = slider.value + "%";
+      }
+    </script>
+  </body>
+</html>
