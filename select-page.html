@@ -66,6 +66,10 @@
       .first-line P::first-line {
         color: #f00;
       }
+      .selection P::selection {
+        color: #f00;
+        background-color: #0f0;
+      }
 
       /* 伪类 */
       .active a:active {
@@ -199,6 +203,12 @@
         <h1>::first-line【首行】</h1>
         <div class="box first-line">
           <p>Defines more strictly where ::first-letter can occur.</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>::selection【选中文字】</h1>
+        <div class="box selection">
+          <p>hello world</p>
         </div>
       </div>
     </main>
