@@ -1,0 +1,468 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 通用 */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0 10px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .title {
+        width: 100%;
+        color: #f00;
+        margin: 10px 0;
+        text-align: center;
+        display: block;
+      }
+      main {
+        display: block;
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+      }
+
+      .line {
+        width: 100%;
+      }
+
+      .box {
+        border: 1px solid #000;
+        width: 100%;
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        width: 100px;
+      }
+    </style>
+    <style>
+      /* 伪元素 */
+      .after h2::after {
+        content: "→";
+        color: #f00;
+      }
+      .before h2::before {
+        content: "♥";
+        color: #f00;
+      }
+      .first-letter h2::first-letter {
+        color: #f00;
+        font-size: 60px;
+      }
+      .first-line P::first-line {
+        color: #f00;
+      }
+
+      /* 伪类 */
+      .active a:active {
+        color: #f00;
+      }
+      .link a:link {
+        color: #ff0;
+      }
+      .visited a:visited {
+        color: #0f0;
+      }
+      .any-link a:any-link {
+        color: #000;
+      }
+      .checked input[type="checkbox"]:checked {
+        display: none;
+      }
+      .disabled input:disabled {
+        color: #f00;
+      }
+      .enabled input:enabled {
+        color: #0f0;
+      }
+      .empty .null:empty {
+        background-color: #00f;
+        width: 100px;
+        height: 100px;
+      }
+      .focus input:focus {
+        background-color: #f00;
+      }
+      .focus-within p:focus-within {
+        background-color: #f00;
+      }
+      .hover button:hover {
+        background-color: #f00;
+        cursor: pointer;
+      }
+      .in-range input:in-range {
+        background-color: #0f0;
+      }
+      .out-of-range input:out-of-range {
+        background-color: #f00;
+      }
+      .invalid form:invalid,
+      .invalid input:invalid {
+        border: 3px solid #f00;
+      }
+      .invalid form:valid,
+      .invalid input:valid {
+        border: 3px solid #0f0;
+      }
+      .invalid form:required {
+        border: 3px solid #00f;
+      }
+      .placeholder-shown input:placeholder-shown {
+        text-overflow: ellipsis;
+      }
+      .read-only input:read-only {
+        background-color: #ccc;
+      }
+      .read-write input:read-write {
+        background-color: #fbb;
+      }
+      :root {
+        color: #333;
+      }
+      .target p:target {
+        background-color: gold;
+      }
+      /* 父子兄弟元素 */
+      .first-child li:first-child {
+        color: #f00;
+      }
+      .first-of-type p:first-of-type {
+        color: #00f;
+      }
+      .last-child li:last-child {
+        color: #f00;
+      }
+      .last-of-type p:last-of-type {
+        color: #00f;
+      }
+      .not *:not(h2) {
+        color: #f00;
+      }
+      .nth-child p:nth-child(3n-1) {
+        color: #f00;
+      }
+      .nth-last-child p:nth-last-child(4n) {
+        color: #f00;
+      }
+      .nth-last-of-type p:nth-last-of-type(3n-1) {
+        color: #f00;
+      }
+      .nth-of-type p:nth-of-type(3n-1) {
+        color: #f00;
+      }
+      .only-child p:only-child {
+        color: #f00;
+      }
+      .only-of-type p:only-of-type {
+        color: #f00;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 伪元素 -->
+    <h1 class="title">CSS伪元素</h1>
+    <main>
+      <div class="line">
+        <h1>::after</h1>
+        <div class="box after">
+          <h2>Loading</h2>
+        </div>
+      </div>
+      <div class="line">
+        <h1>::before</h1>
+        <div class="box before">
+          <h2>Loading</h2>
+        </div>
+      </div>
+      <div class="line">
+        <h1>::first-letter</h1>
+        <div class="box first-letter">
+          <h2>Loading</h2>
+        </div>
+      </div>
+      <div class="line">
+        <h1>::first-line</h1>
+        <div class="box first-line">
+          <p>Defines more strictly where ::first-letter can occur.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- 伪类 -->
+    <h1 class="title">CSS伪类</h1>
+    <main>
+      <div class="line">
+        <h1>:hover</h1>
+        <div class="box hover">
+          <button>鼠标悬浮样式</button>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:root</h1>
+        <div class="box root">
+          <p>p</p>
+          <b>b</b>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:target</h1>
+        <div class="box target">
+          <ol>
+            <li><a href="#p1">#p1</a></li>
+            <li><a href="#p2">#p2</a></li>
+          </ol>
+
+          <p id="p1">1</p>
+          <p id="p2">2</p>
+        </div>
+      </div>
+    </main>
+    <!-- 伪类【form验证】 -->
+    <h1 class="title">伪类【form验证】</h1>
+    <main>
+      <div class="line">
+        <h1>:checked</h1>
+        <div class="box checked">
+          <input type="checkbox" name="apple" value="apple" checked="checked" />apple<br />
+          <input type="checkbox" name="iphone" />iphone
+        </div>
+      </div>
+      <div class="line">
+        <h1>:disabled</h1>
+        <div class="box disabled">
+          <input type="text" placeholder="Name" value="pdd" disabled="disabled" />
+        </div>
+      </div>
+      <div class="line">
+        <h1>:enabled</h1>
+        <div class="box enabled">
+          <input type="text" placeholder="Name" value="pdd" />
+        </div>
+      </div>
+      <div class="line">
+        <h1>:empty</h1>
+        <div class="box empty">
+          <div class="content">有文字</div>
+          <div class="null"></div>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:focus</h1>
+        <div class="box focus">
+          <p>姓名：<input value="点击聚焦input变色" type="text" /></p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:focus-within</h1>
+        <div class="box focus-within">
+          <p>姓名：<input value="点击聚焦整行变色" type="text" /></p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:in-range</h1>
+        <div class="box in-range">
+          <input type="number" placeholder="1 to 10" min="1" max="10" value="7" />
+        </div>
+      </div>
+      <div class="line">
+        <h1>:out-of-range</h1>
+        <div class="box out-of-range">
+          <input type="number" placeholder="1 to 10" min="1" max="10" value="12" />
+        </div>
+      </div>
+      <div class="line">
+        <h1>:invalid/valid/required</h1>
+        <div class="box invalid">
+          <form>
+            <label for="">输入邮箱</label>
+            <input type="email" required />
+          </form>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:placeholder-shown</h1>
+        <div class="box placeholder-shown">
+          <input type="text" placeholder="请输入您的微信账号" />
+        </div>
+      </div>
+      <div class="line">
+        <h1>:read-only</h1>
+        <div class="box read-only">
+          <input type="text" placeholder="请输入您的微信账号" readonly />
+        </div>
+      </div>
+      <div class="line">
+        <h1>:read-write</h1>
+        <div class="box read-write">
+          <input type="text" placeholder="请输入您的微信账号" />
+        </div>
+      </div>
+    </main>
+
+    <!-- 伪类【link链接】 -->
+    <h1 class="title">伪类【link链接】</h1>
+    <main>
+      <div class="line">
+        <h1>:active</h1>
+        <div class="box active">
+          <a href="https://www.baidu.com/s?ie=UTF-8&wd=%E6%97%A5%E5%8E%86">百度-天气</a>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:link</h1>
+        <div class="box link">
+          <a href="https://www.baidu.com/">百度【link】</a>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:visited</h1>
+        <div class="box visited">
+          <a href="https://www.baidu.com/">百度【visited】</a>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:any-link</h1>
+        <div class="box any-link">
+          <a href="https://www.baidu.com/s?ie=UTF-8&wd=%E6%97%A5%E5%8E%86">百度-天气</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- 伪类【父子兄弟元素】 -->
+    <h1 class="title">CSS伪类【父子兄弟元素】</h1>
+    <main>
+      <div class="line">
+        <h1>:first-child</h1>
+        <div class="box first-child">
+          <ul>
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+          </ul>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:first-of-type</h1>
+        <div class="box first-of-type">
+          <p>p1</p>
+          <h2>h2</h2>
+          <p>p2</p>
+          <p>p3</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:last-child</h1>
+        <div class="box last-child">
+          <ul>
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+          </ul>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:last-of-type</h1>
+        <div class="box last-of-type">
+          <p>p1</p>
+          <h2>h2</h2>
+          <p>p2</p>
+          <p>p3</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:not</h1>
+        <div class="box not">
+          <p>p1</p>
+          <h2>h2</h2>
+          <p>p2</p>
+          <p>p3</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:nth-child</h1>
+        <div class="box nth-child">
+          <p>p1</p>
+          <p>p2</p>
+          <p>p3</p>
+          <p>p4</p>
+          <p>p5</p>
+          <p>p6</p>
+          <p>p7</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:nth-last-child</h1>
+        <div class="box nth-last-child">
+          <p>p1</p>
+          <p>p2</p>
+          <p>p3</p>
+          <p>p4</p>
+          <p>p5</p>
+          <p>p6</p>
+          <p>p7</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:nth-last-of-type</h1>
+        <div class="box nth-last-of-type">
+          <p>p1</p>
+          <p>p2</p>
+          <p>p3</p>
+          <h2>h2</h2>
+          <p>p4</p>
+          <p>p5</p>
+          <p>p6</p>
+          <p>p7</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:nth-of-type</h1>
+        <div class="box nth-of-type">
+          <p>p1</p>
+          <p>p2</p>
+          <p>p3</p>
+          <h2>h2</h2>
+          <p>p4</p>
+          <p>p5</p>
+          <p>p6</p>
+          <p>p7</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:only-child</h1>
+        <div class="box only-child">
+          <div>
+            <p>p1</p>
+          </div>
+          <div>
+            <p>p1</p>
+            <p>p2</p>
+          </div>
+        </div>
+      </div>
+      <div class="line">
+        <h1>:only-of-type</h1>
+        <div class="box only-of-type">
+          <p>p</p>
+          <i>i</i>
+          <b>b</b>
+          <span>span</span>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
