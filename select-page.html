@@ -70,6 +70,19 @@
         color: #f00;
         background-color: #0f0;
       }
+      .default option:default {
+        color: red;
+      }
+      .default input:default + label {
+        color: #f00;
+      }
+
+      .default input:default + label::after {
+        content: "（推荐）";
+      }
+      .marker ul ::marker {
+        color: #f00;
+      }
 
       /* 伪类 */
       .active a:active {
@@ -209,6 +222,44 @@
         <h1>::selection【选中文字】</h1>
         <div class="box selection">
           <p>hello world</p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>::default【默认】</h1>
+        <div class="box default">
+          <select>
+            <option>选项1</option>
+            <option selected>选项3</option>
+            <option>选项5</option>
+          </select>
+          <select multiple>
+            <option>选项1</option>
+            <option>选项2</option>
+            <option>选项3</option>
+            <option selected>选项4</option>
+            <option>选项5</option>
+            <option>选项6</option>
+          </select>
+
+          <p><input type="radio" name="pay" id="pay0" value="0" /> <label for="pay0">支付宝</label></p>
+          <p><input type="radio" name="pay" id="pay1" value="1" checked /> <label for="pay1">微信</label></p>
+          <p><input type="radio" name="pay" id="pay2" value="2" /> <label for="pay2">银行卡</label></p>
+        </div>
+      </div>
+      <div class="line">
+        <h1>::marker【标记】</h1>
+        <div class="box marker">
+          <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+          </ul>
+          <div>------</div>
+          <ol>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+          </ol>
         </div>
       </div>
     </main>
