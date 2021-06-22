@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="line">
+        <canvas class="box" id="rect"> </canvas>
+    </div>
+    <script>
+		var texts = '01'.split('');
+		const FONTSIZE = 30
+		const WIDTH = 500
+		const HEIGHT = 300
+		var arrs = new Array(parseInt(WIDTH/FONTSIZE)).fill(1)
+	
+		let c = document.querySelector("#rect");
+		let ctx = c.getContext("2d");
+		
+		setInterval(()=>{
+			basicFn()
+			animationFn();
+		},100)
+		function basicFn(){
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+            ctx.fillRect(0, 0, WIDTH, HEIGHT);
+			
+            ctx.fillStyle = "rgba(255,255,255,1)";
+			ctx.font = FONTSIZE + "px Arial";
+		}
+        function animationFn() {
+			arrs.forEach((v,index)=>{
+				var text = texts[Math.floor(Math.random()*texts.length)]
+				ctx.fillText(text, index*FONTSIZE, arrs[index]*FONTSIZE);
+				
+				if (arrs[index]*FONTSIZE > HEIGHT || Math.random() > 0.95) {
+				  arrs[index] = 0
+				}
+				arrs[index]++
+			})
+        }
+
+    </script>
+</body>
+
+</html>
