@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <style>
+        .area {
+            width: 1000px;
+            height: 400px;
+            border: 1px solid #f00;
+        }
+
+        .area>.ball {
+            width: 100px;
+            height: 60px;
+            position: absolute;
+            border-radius: 60px;
+            background-image: linear-gradient(to top, blue, lightblue);
+            box-shadow: 0px 0px 20px #0000ff5c;
+        }
+
+        /* 在X轴上的移动 */
+        @keyframes anmiteX {
+            from {
+                left: 100px;
+            }
+
+            to {
+                left: 800px;
+            }
+        }
+
+        /* 在轴上Y的移动 */
+        @keyframes anmiteY {
+            from {
+                top: 100px;
+            }
+
+            to {
+                top: 300px;
+            }
+        }
+    </style>
+
+    <div class="area">
+    </div>
+    <script type="text/javascript">
+        // nameArr 球的名称，runtime 运行一圈的时间.warmballArr 爆满的球素组
+        function addBall(num, runtime) {
+            let _parentbox = document.getElementsByClassName('area')[0];
+            let _innerHtml = "";
+            for (let i = 0; i < num; i++) {
+                let _xtime = parseFloat(runtime / 4);
+                let _ytime = parseFloat(runtime / num);
+                let _style = `
+             animation: anmiteX `+ (runtime / 2) + `s cubic-bezier(0.36, 0, 0.64, 1) -` + (_xtime + (i * _ytime)) + `s infinite alternate,
+             anmiteY `+ (runtime / 2) + `s cubic-bezier(0.36, 0, 0.64, 1) -` + (i * _ytime) + `s infinite alternate;
+             `;
+                _innerHtml += `
+                <div class=" ball`+ (i + 1) + ` ball " Style="` + _style + `">
+                </div>`
+            }
+            _parentbox.innerHTML = _innerHtml;
+        }
+        addBall(10, 24);
+    </script>
+</body>
+
+</html>
