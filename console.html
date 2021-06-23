@@ -9,11 +9,12 @@
 </head>
 
 <body>
+	<h1>打开<kbd>F12</kbd>查看console控制台信息</h1>
 	<script>
 		console.clear()
 		console.log('%c 【clear】', 'font-size: 2em;color:#f00');
 
-		console.log('%c 【%s、%i、%d、%o、%O】', 'font-size: 2em;color:#f00');
+		console.log('%c 【%c、%s、%i、%d、%o、%O】', 'font-size: 2em;color:#f00');
 		console.log('%d + %i = %s', '3', 2, 'hello');
 		console.log('%o和%O都是个对象', { a: 3 }, { a: 4 });
 		console.log('%c 自定义样式。如：ERROR', 'color:#0f0');
