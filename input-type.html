@@ -1,0 +1,209 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    /* 通用 */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 0 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .title {
+      width: 100%;
+      color: #f00;
+      margin: 10px 0;
+      text-align: center;
+      display: block;
+    }
+
+    main {
+      display: block;
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 10px;
+      margin: 0 0 40px 0;
+    }
+
+    .line {
+      width: 100%;
+    }
+
+    .box {
+      border: 1px solid #000;
+      width: 100%;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      width: 100px;
+    }
+  </style>
+  <style>
+  </style>
+</head>
+
+<body>
+  <h1 class="title">HTML input 标签所有type</h1>
+  <main>
+    <div class="line">
+      <h1>button</h1>
+      <div class="box">
+        <input type="button" value="button">
+      </div>
+    </div>
+    <div class="line">
+      <h1>checkbox</h1>
+      <div class="box">
+        <input type="checkbox" name="checkbox" id="">复选1
+        <input type="checkbox" name="checkbox" id="">复选2
+      </div>
+    </div>
+    <div class="line">
+      <h1>color<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="color" name="color" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>date<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="date" name="date" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>datetime<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="datetime" name="datetime" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>datetime-local<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="datetime-local" name="datetime-local" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>email</h1>
+      <div class="box">
+        <input type="email" name="email" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>file</h1>
+      <div class="box">
+        <input type="file" name="file" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>hidden</h1>
+      <div class="box">
+        <input type="hidden" name="hidden">
+      </div>
+    </div>
+    <div class="line">
+      <h1>image</h1>
+      <div class="box">
+        <input type="image" src="https://wx3.sinaimg.cn/mw690/0069qZtTgy1gr69rnai3gj308w08wjrc.jpg" alt="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>month<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="month" name="month" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>number<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="number" name="number" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>password</h1>
+      <div class="box">
+        <input type="password" name="password" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>radio</h1>
+      <div class="box">
+        <input type="radio" name="radio" id="">男
+        <input type="radio" name="radio" id="">女
+      </div>
+    </div>
+    <div class="line">
+      <h1>range<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="range" name="range" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>reset</h1>
+      <div class="box">
+        <input type="reset" value="reset">
+      </div>
+    </div>
+    <div class="line">
+      <h1>search<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="search" name="search" id="" value="abc">
+      </div>
+    </div>
+    <div class="line">
+      <h1>submit</h1>
+      <div class="box">
+        <input type="submit" value="submit">
+      </div>
+    </div>
+    <div class="line">
+      <h1>tel<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="tel" name="tel" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>text</h1>
+      <div class="box">
+        <input type="text" name="text" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>time<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="time" name="time" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>url<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="url" name="url" id="">
+      </div>
+    </div>
+    <div class="line">
+      <h1>week<mark>【新】</mark></h1>
+      <div class="box">
+        <input type="week" name="week" id="">
+      </div>
+    </div>
+  </main>
+
+</body>
+
+</html>
