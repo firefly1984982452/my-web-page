@@ -2,73 +2,91 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>时间简单显示</title>
-  <script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>时间简单显示</title>
+	<script>
     // kindle558 像素：601*784
-  </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+	</script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-    html,
-    body {
-      height: 100%;
-    }
+		html,
+		body {
+			height: 100%;
+		}
 
-    .box {
-      position: relative;
-      height: 100%;
-    }
+		.box {
+			position: relative;
+			height: 100%;
+		}
 
-    .content {
-      position: absolute;
-      width: 100%;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
+		.content {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: 20%;
+			height: 100%;
+		}
 
-    .title {
-      width: 100%;
-      text-align: center;
-      font-size: 200px;
-    }
+		.title {
+			width: 1000px;
+			height: 700px;
+			text-align: center;
+			font-size: 20em;
+			font-weight: bold;
+		}
 
-    .date {
-      width: 100%;
-      text-align: center;
-      font-size: 60px;
-    }
-  </style>
+		.date {
+			width: 1000px;
+			height: 200px;
+			text-align: center;
+			font-size: 7em;
+		}
+	</style>
 </head>
 
 <body>
-  <div class="box">
-    <div class="content">
-      <div class="title" id="time">00:00</div>
-      <div class="date" id="date">01月01日 星期一</div>
+	<div class="box">
+		<div class="content">
+			<div class="title" id="time">00:00</div>
+			<div class="date" id="date">01月01日 星期一</div>
 
-    </div>
-  </div>
-  <script>
-    setInterval(function () {
-      var date = new Date();
-      var min = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours();
-      var sec = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes();
-      var timeShow = min + ':' + sec;
-      var dateShow = date.getMonth() + 1 + '月' + date.getDate() + '日  星期' + ['日', '一', '二', '三', '四', '五', '六'][date
-        .getDay()
-      ];
-      document.getElementById('time').innerText = timeShow;
-      document.getElementById('date').innerText = dateShow;
-    }, 10000);
-  </script>
+		</div>
+	</div>
+	<script>
+		// kindle莫名推迟显示了8小时，故加上8小时
+		var fn = function () {
+			var date = new Date();
+			var min = date.getHours();
+			var minShow = 0
+			if (23 >= min && min >= 16) {
+				minShow = min + 8 - 24
+			} else {
+				minShow = min + 8
+			}
+			var sec = date.getMinutes();
+			console.log(date, min, minShow, sec);
+
+			minShow = minShow >= 10 ? minShow : '0' + minShow;
+			secShow = sec >= 10 ? sec : '0' + sec;
+			var timeShow = minShow + ':' + secShow;
+			var dateShow = date.getMonth() + 1 + '月' + date.getDate() + '日  星期' + ['日', '一', '二', '三', '四', '五', '六'][date
+				.getDay()
+			];
+			document.getElementById('time').innerText = timeShow;
+			document.getElementById('date').innerText = dateShow;
+		}
+		fn()
+		setInterval(function () {
+			fn()
+		}, 10000);
+	</script>
 </body>
 
 </html>
