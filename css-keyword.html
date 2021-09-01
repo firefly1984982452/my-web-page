@@ -1,0 +1,192 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    /* 通用 */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 0 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .title {
+      width: 100%;
+      color: #f00;
+      margin: 10px 0;
+      text-align: center;
+      display: block;
+    }
+
+    main {
+      display: block;
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      margin: 0 0 40px 0;
+    }
+
+    .line {
+      width: 100%;
+    }
+
+    .box {
+      border: 1px solid #000;
+      width: 100%;
+      height: 150px;
+    }
+
+    input {
+      width: 100px;
+    }
+  </style>
+  <style>
+    .initial .test {
+      display: initial;
+    }
+
+    .inherit .box1 {
+      border: 1px solid black;
+      padding: 10px;
+      width: 100px;
+    }
+
+    .inherit .test {
+      border: inherit;
+      height: 30px;
+    }
+
+    .unset {
+      color: #ff0;
+    }
+
+    .unset .test1 {
+      color: red;
+    }
+
+    .unset .ee {
+      color: unset;
+    }
+
+    .revert li {
+      list-style: none;
+    }
+
+    .revert ul li {
+      list-style: revert;
+    }
+
+
+    .all .test {
+      border: 1px solid black;
+      padding: 20px;
+      color: red;
+    }
+
+    .all-initial .in {
+      all: initial;
+    }
+
+    .all-inherit .in {
+      all: inherit;
+    }
+
+    .all-unset .in {
+      all: unset;
+    }
+
+    .all-revert .in {
+      all: revert;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="title">initial、inherit、unset、revert和all</h1>
+  <main>
+    <div class="line">
+      <h1>initial</h1>
+      <div class="box initial">
+        <div class="test">测试一</div><span>文字</span>
+        <br>
+        <div>测试二</div><span>文字</span>
+      </div>
+    </div>
+    <div class="line">
+      <h1>inherit</h1>
+      <div class="box inherit">
+        <div class="box1">
+          <div class="test">测试一</div>
+        </div>
+        <div class="box1">
+          <div class="in">
+            <div class="test">测试二</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="line">
+      <h1>unset</h1>
+      <div class="box unset">
+        <div class="test1 ee">测试一</div>
+        <div class="test1">测试二</div>
+      </div>
+    </div>
+    <div class="line">
+      <h1>revert</h1>
+      <div class="box revert">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <h1>all: initial</h1>
+      <div class="box all all-initial">
+        <div class="test">
+          <div class="in">测试文字</div>
+        </div>
+      </div>
+    </div>
+    <div class="line">
+      <h1>all: inherit</h1>
+      <div class="box all all-inherit">
+        <div class="test">
+          <div class="in">测试文字</div>
+        </div>
+      </div>
+    </div>
+    <div class="line">
+      <h1>all: unset</h1>
+      <div class="box all all-unset">
+        <div class="test">
+          <div class="in">测试文字</div>
+        </div>
+      </div>
+    </div>
+    <div class="line">
+      <h1>all: revert</h1>
+      <div class="box all all-revert">
+        <div class="test">
+          <div class="in">测试文字</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+
+</html>
