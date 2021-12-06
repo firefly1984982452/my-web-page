@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    /* 通用 */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 0 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    h4 {
+      color: #f00;
+    }
+
+    .title {
+      width: 100%;
+      color: #f00;
+      margin: 10px 0;
+      text-align: center;
+      display: block;
+    }
+
+    main {
+      display: block;
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      margin: 0 0 40px 0;
+    }
+
+    .line {
+      width: auto;
+    }
+
+    .box {
+      width: 150px;
+      border: 1px solid #000;
+      height: 150px;
+    }
+  </style>
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <h1 class="title">文字换行与截断</h1>
+  <main>
+    <div class="line">
+      <h1>默认【正常】</h1>
+      <div class="box">
+        默认正常文字和数字2021年，中国最好的一年；2022年，也是。
+      </div>
+    </div>
+    <div class="line">
+      <h1>默认【错误】</h1>
+      <div class="box">
+        <p>12345678901234567890any anywhere anywhereanywhereanywhere</p>
+      </div>
+    </div>
+    <div class="line">
+      <h1>word-wrap: break-word;</h1>
+      <div class="box" style="word-wrap: break-word;">
+        <p>12345678901234567890any anywhere anywhereanywhereanywhere</p>
+        <h4>如果单词太长会自动换行。</h4>
+      </div>
+    </div>
+    <div class="line">
+      <h1>overflow-wrap: break-word;</h1>
+      <div class="box" style="overflow-wrap: break-word;">
+        <p>12345678901234567890any anywhere anywhereanywhereanywhere</p>
+        <h4>功能上同，W3C 新写法。</h4>
+      </div>
+    </div>
+    <div class="line">
+      <h1>overflow-wrap: anywhere;</h1>
+      <div class="box" style="overflow-wrap: anywhere;">
+        <p>12345678901234567890any anywhere anywhereanywhereanywhere</p>
+        <h4>任何地方都可以换行</h4>
+      </div>
+    </div>
+    <div class="line">
+      <h1>white-space: nowrap;</h1>
+      <div class="box" style="white-space: nowrap;">
+        <p>12345678901234567890any anywhere anywhereanywhereanywhere</p>
+        <h4>段落中的文本不换行（会截断）。</h4>
+      </div>
+    </div>
+    <div class="line">
+      <h1>word-break: keep-all;</h1>
+      <div class="box" style="word-break: keep-all;">
+        <p>12345678901234567890any anywhere anywhereanywhereanywhere</p>
+        <h4>【默认】单词放不下会自动换行【文字截断】。</h4>
+      </div>
+    </div>
+    <div class="line">
+      <h1>word-break: break-all;</h1>
+      <div class="box" style="word-break: break-all;">
+        <p>12345678901234567890any anywhere anywhereanywhereanywhere</p>
+        <h4>单词放不下会折断换行，铺满元素【文字截断】。</h4>
+      </div>
+    </div>
+  </main>
+
+</body>
+
+</html>
