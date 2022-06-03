@@ -12,31 +12,34 @@
 
 <body>
   <div id="app">
-    <header>
-      <h2>2022博客日记</h2>
-    </header>
-    <nav>
+    <nav v-show="showNav">
       <a v-for="(x,y) in list" :key="y" :href="'#'+x.date">{{x.date}}</a>
     </nav>
     <main>
-      <div class="content" v-for="(x,y) in list" :key="y">
-        <header class="title" :id="x.date">
-          <h2>{{x.date}}</h2>
-          <h5>{{x.content}}</h5>
-        </header>
-        <ul>
-          <li v-for="(item,index) in x.children" :key="index">
-            <p class="content">【{{index}}】{{item.content}}</p>
-            <div class="img-box">
-              <p class="date">{{item.date}}</p>
-              <span v-if="item.imgs.length>1">+{{item.imgs.length-1}}</span>
-              <!-- <img v-for="i in item.imgs" :key="i" :src="i" alt=""> -->
-              <img :src="item.img" alt="">
-              <b v-if="item.imgs.length>1" @click="nextImg(y,index)">></b>
-            </div>
-          </li>
-          <div style="clear: both;"></div>
-        </ul>
+      <header>
+        <img @click="showMenu" class="menu" src="https://s1.ax1x.com/2022/03/17/qC38je.png" alt="" srcset="">
+        <h2>2022博客日记</h2>
+      </header>
+      <div class="month">
+        <div class="content" v-for="(x,y) in list" :key="y">
+          <div class="title" :id="x.date">
+            <h2>{{x.date}}</h2>
+            <h5>{{x.content}}</h5>
+          </div>
+          <ul>
+            <li v-for="(item,index) in x.children" :key="index">
+              <p class="content">【{{index}}】{{item.content}}</p>
+              <div class="img-box">
+                <p class="date">{{item.date}}</p>
+                <span v-if="item.imgs.length>1">+{{item.imgs.length-1}}</span>
+                <!-- <img v-for="i in item.imgs" :key="i" :src="i" alt=""> -->
+                <img :src="item.img" alt="">
+                <b v-if="item.imgs.length>1" @click="nextImg(y,index)">></b>
+              </div>
+            </li>
+            <div style="clear: both;"></div>
+          </ul>
+        </div>
       </div>
     </main>
   </div>

@@ -1,9 +1,13 @@
 var app = new Vue({
   el: "#app",
   data: {
+    showNav: false,
     list: [],
   },
   methods: {
+    showMenu() {
+      this.showNav = !this.showNav;
+    },
     nextImg(index, y) {
       let item = this.list[index].children[y];
       let length = item.imgs.length;
