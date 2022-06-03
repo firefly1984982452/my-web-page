@@ -32,7 +32,8 @@
               <p class="date">{{item.date}}</p>
               <span v-if="item.imgs.length>1">+{{item.imgs.length-1}}</span>
               <!-- <img v-for="i in item.imgs" :key="i" :src="i" alt=""> -->
-              <img :src="item.imgs[0]" alt="">
+              <img :src="item.img" alt="">
+              <b v-if="item.imgs.length>1" @click="nextImg(y,index)">></b>
             </div>
           </li>
           <div style="clear: both;"></div>
