@@ -6,8 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <!-- 插件：放大图片 -->
-  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
   <!-- 插件：vue -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <link rel="stylesheet" href="./css/blog.css">
@@ -15,22 +13,31 @@
 
 <body>
   <div id="app">
-    <main v-for="(x,y) in list" :key="y">
-      <header class="title">
-        <h1>{{x.date}}</h1>
-        <h5>{{x.content}}</h5>
-      </header>
-      <ul>
-        <li v-for="(item,index) in x.children" :key="index">
-          <p class="content">【{{index}}】{{item.content}}</p>
-          <div class="img-box">
-            <p class="date">{{item.date}}</p>
-            <span v-if="item.imgs.length>1">+{{item.imgs.length-1}}</span>
-            <!-- <img v-for="i in item.imgs" :key="i" :src="i" alt=""> -->
-            <img :src="item.imgs[0]" alt="">
-          </div>
-        </li>
-      </ul>
+    <header>
+      <h2>2022博客日记</h2>
+    </header>
+    <nav>
+      <a v-for="(x,y) in list" :key="y" :href="'#'+x.date">{{x.date}}</a>
+    </nav>
+    <main>
+      <div class="content" v-for="(x,y) in list" :key="y">
+        <header class="title" :id="x.date">
+          <h2>{{x.date}}</h2>
+          <h5>{{x.content}}</h5>
+        </header>
+        <ul>
+          <li v-for="(item,index) in x.children" :key="index">
+            <p class="content">【{{index}}】{{item.content}}</p>
+            <div class="img-box">
+              <p class="date">{{item.date}}</p>
+              <span v-if="item.imgs.length>1">+{{item.imgs.length-1}}</span>
+              <!-- <img v-for="i in item.imgs" :key="i" :src="i" alt=""> -->
+              <img :src="item.imgs[0]" alt="">
+            </div>
+          </li>
+          <div style="clear: both;"></div>
+        </ul>
+      </div>
     </main>
   </div>
   <script src="./js/blog.js"></script>
