@@ -1,3 +1,14 @@
+// $.getJSON("./data.json", (data) => {
+//   console.log(data);
+// });
+$.ajax({
+  url: "./js/data.json",
+  type: "GET",
+  dataType: "json",
+  success: function (data) {
+    console.log(data);
+  },
+});
 var app = new Vue({
   el: "#app",
   data: {
