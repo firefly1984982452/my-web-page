@@ -7,7 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="./js/vue.js"></script>
-  <script src="./js/jquery.min.js"></script>
+  <!-- <script src="./js/jquery.min.js"></script> -->
+  <script type="text/javascript">
+    //回调函数
+    function train(data) {
+      window.list = data
+    }
+  </script>
+  <script src="./js/data.json"></script>
   <link rel="stylesheet" href="./css/blog.css">
 </head>
 
@@ -29,7 +36,7 @@
           </div>
           <ul>
             <li v-for="(item,index) in x.children" :key="index">
-              <p class="content">【{{index}}】{{item.content}}</p>
+              <p class="content" :title="item.content">{{item.content}}</p>
               <div class="img-box">
                 <p class="date">{{item.date}}</p>
                 <span v-if="item.imgs.length>1">+{{item.imgs.length-1}}</span>
