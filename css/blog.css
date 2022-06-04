@@ -124,9 +124,10 @@ ul li p {
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   position: absolute;
-  bottom: 7px;
+  bottom: 0;
   left: 0;
   text-align: center;
+  border-radius: 0 0 5px 5px;
 }
 span,
 b {
