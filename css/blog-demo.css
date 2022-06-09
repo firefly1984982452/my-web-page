@@ -3,6 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/* 盒子里面如果有子元素 */
+div.example-box > div.item {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border: 1px solid rgba(255, 0, 0, 0.1);
+  text-align: center;
+}
 /* 盒子里面有多个例子 */
 div.example-box .grid-box {
   display: grid;
