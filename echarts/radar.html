@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>echarts</title>
+</head>
+
+<body>
+  <div id="chart1" style="width:600px; height: 600px;"></div>
+  <script src="https://fastly.jsdelivr.net/npm/echarts@5.3.2"></script>
+  <script type="text/javascript">
+    //指定图标的配置和数据
+    var option = {
+      backgroundColor: '#000',
+      color: ["rgba(125, 255, 255, 1)"],
+      legend: { show: false },
+      radar: {
+        center: ["50%", "50%"],
+        radius: "50%",
+        shape: "circle",
+        splitArea: {
+          show: false,
+        },
+        splitLine: {
+          show: true,
+          lineStyle: {
+            width: 1,
+            color: "rgba(125, 255, 255, .7)", // 设置网格的颜色
+          },
+        },
+        indicator: [
+          { name: "餐饮", max: 100, value: 50 },
+          { name: "零售", max: 100, value: 25 },
+          { name: "其它", max: 100, value: 25 },
+        ],
+        name: {
+          formatter: function (name, indicator) {
+            console.log(name, indicator);
+            return (
+              "{value|" + indicator.value + "%}\n" + "{name|" + name + "}"
+            );
+          },
+          rich: {
+            name: {
+              fontSize: 14,
+              color: "#fff",
+              align: "center",
+            },
+            value: {
+              fontSize: 24,
+              fontFamily: "bender",
+              color: "rgba(125, 255, 162, 1)",
+            },
+          },
+        },
+        nameGap: "5",
+      },
+      series: [
+        {
+          name: "雷达图",
+          type: "radar",
+          data: [
+            {
+              value: [50, 25, 25],
+              name: "2021年",
+              areaStyle: {
+                normal: {
+                  // 单项区域填充样式
+                  color: {
+                    type: "radial",
+                    x: 0.5, //右
+                    y: 0.5, //下
+                    r: 1,
+                    colorStops: [
+                      {
+                        offset: 1,
+                        color: "rgba(125, 255, 255, 0.6)",
+                      },
+                      {
+                        offset: 0,
+                        color: "rgba(125, 255, 255, 0.2)",
+                      },
+                    ],
+                    globalCoord: false,
+                  },
+                  opacity: 0.8, // 区域透明度
+                },
+              },
+            },
+          ],
+        },
+      ],
+    };
+    //初始化echarts实例
+    var myChart = echarts.init(document.getElementById('chart1'));
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>

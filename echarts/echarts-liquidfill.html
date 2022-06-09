@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>echarts</title>
+</head>
+
+<body>
+  <div id="chart1" style="width:600px; height: 600px;"></div>
+  <script src="https://fastly.jsdelivr.net/npm/echarts@5.3.2"></script>
+  <script src="https://fastly.jsdelivr.net/npm/echarts-liquidfill@3/dist/echarts-liquidfill.min.js"></script>
+  <script type="text/javascript">
+    //指定图标的配置和数据
+    var option = {
+      series: [
+        {
+          type: 'liquidFill', //水位图
+          radius: '80%', //显示比例
+          center: ['50%', '50%'], //中心点
+          amplitude: 20, //水波振幅
+          data: [0.5, 0.5, 0.5], // data个数代表波浪数
+          color: ['#23cc72'], //波浪颜色
+          backgroundStyle: {
+            borderWidth: 6, //外边框
+            borderColor: '#23cc72', //边框颜色
+            color: '#485C6D', //边框内部填充部分颜色
+          },
+          label: {
+            //标签设置
+            normal: {
+              position: ['50%', '30%'],
+              formatter: '50%', //显示文本,
+              textStyle: {
+                fontSize: '52px', //文本字号,
+                color: '#fff',
+              },
+            },
+          },
+          outline: {
+            show: false,//最外层边框显示控制
+          },
+        },
+      ],
+    };
+    //初始化echarts实例
+    var myChart = echarts.init(document.getElementById('chart1'));
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>
