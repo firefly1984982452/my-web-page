@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      width: 100%;
+      height: 90vh;
+      border: 1px solid #000;
+      display: grid;
+      place-content: center;
+    }
+
+    .img-box {
+      border: 3px solid #f00;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .img-box.vertical {
+      width: 300px;
+      height: 510px;
+    }
+
+    .img-box.horizontal {
+      width: 1000px;
+      height: 562px;
+    }
+
+    .img-box img,
+    .img-box .txt {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .img-box .txt {
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(7px);
+      color: #fff;
+      display: grid;
+      place-content: center;
+    }
+
+    .txt p {
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="btn">
+      <button @click="changeH">横屏horizontal：16:9（1000px:562px）</button>
+      <button @click="changeV">竖屏vertical：9:16（300px:510px）</button>
+    </div>
+    <div class="content">
+      <div :class="'img-box ' +css">
+        <img :src="imgSrc">
+        <div class="txt">
+          <h1>{{title}}</h1>
+          <p>—— by pdd</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var app = new Vue({
+    el: "#app",
+    mounted() {
+      console.log(1);
+    },
+    data: {
+      css: 'horizontal',
+      imgSrc: "https://s21.ax1x.com/2024/04/01/pF7tiXF.png",
+      title: "《悲惨世界》",
+    },
+    methods: {
+      changeH() {
+        this.css = 'horizontal';
+        console.log(1);
+      },
+      changeV() {
+        this.css = 'vertical';
+        console.log(2);
+      },
+    }
+  })
+</script>
+
+</html>
