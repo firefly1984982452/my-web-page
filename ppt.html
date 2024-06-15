@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="./js/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -23,7 +24,7 @@
     }
 
     .img-box {
-      border: 3px solid #f00;
+      border: 3px solid #fbb;
       border-radius: 5px;
       position: relative;
     }
@@ -31,6 +32,7 @@
     .img-box.vertical {
       width: 300px;
       height: 510px;
+      font-size: 13px;
     }
 
     .img-box.horizontal {
@@ -54,14 +56,29 @@
     .img-box .txt {
       width: 100%;
       height: 100%;
-      backdrop-filter: blur(7px);
+      backdrop-filter: blur(2px);
+      background-color: rgba(0, 0, 0, .4);
       color: #fff;
       display: grid;
       place-content: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .horizontal .txt h1 {
+      font-size: 4em;
+    }
+
+    .vertical .txt h1 {
+      font-size: 3em;
+      writing-mode: vertical-rl;
+      display: flex;
+      align-items: center;
     }
 
     .txt p {
       text-align: right;
+      font-size: 2em;
     }
   </style>
 </head>
@@ -71,9 +88,10 @@
     <div class="btn">
       <button @click="changeH">横屏horizontal：16:9（1000px:562px）</button>
       <button @click="changeV">竖屏vertical：9:16（300px:510px）</button>
+      <button @click="downImg">生成图片</button>
     </div>
     <div class="content">
-      <div :class="'img-box ' +css">
+      <div :class="'img-box ' +css" id="html2canvasRef">
         <img :src="imgSrc">
         <div class="txt">
           <h1>{{title}}</h1>
@@ -90,18 +108,52 @@
       console.log(1);
     },
     data: {
-      css: 'horizontal',
-      imgSrc: "https://s21.ax1x.com/2024/04/01/pF7tiXF.png",
-      title: "《悲惨世界》",
+      css: 'vertical',
+      imgSrc: "./img/王莽-banner.jpeg",
+      title: "《汉书·传·王莽传》",
     },
     methods: {
       changeH() {
         this.css = 'horizontal';
-        console.log(1);
       },
       changeV() {
         this.css = 'vertical';
-        console.log(2);
+      },
+      downloadIMG1() {
+        html2canvas(document.querySelector("#html2canvasRef"),
+          { scale: 2, logging: false, useCORS: true, allowTaint: false, proxy: 'https://s21.ax1x.com' }
+        ).then(canvas => {
+          console.log(canvas);
+          // document.body.appendChild(canvas)
+        });
+      },
+      downloadIMG() {
+        html2canvas(document.querySelector("#html2canvasRef")).then((canvas) => {
+          console.log(canvas);
+          let dataURL = canvas.toDataURL("image/png"); //base64格式的图片 url
+          // 创建a标签下载图片
+          var addElement = document.createElement('a')
+          addElement.href = dataURL
+          addElement.download = "下载.png" //设置下载的图片名称
+
+          document.body.appendChild(addElement)
+          addElement.click();
+          document.body.removeChild(addElement);
+        });
+      },
+      downImg() {
+        html2canvas(document.querySelector('#html2canvasRef')).then(canvas => {
+          const imgUrl = canvas.toDataURL('image/jpeg')
+          const image = document.createElement('img')
+          image.src = imgUrl
+          // 将生成的图片放到 类名为 content 的元素中
+          document.querySelector('.content').appendChild(image)
+          const a = document.createElement('a')
+          a.href = imgUrl
+          // a.download 后面的内容为自定义图片的名称
+          a.download = 'code_download'
+          a.click()
+        })
       },
     }
   })
