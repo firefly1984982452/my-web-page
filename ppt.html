@@ -88,7 +88,7 @@
     <div class="btn">
       <button @click="changeH">横屏horizontal：16:9（1000px:562px）</button>
       <button @click="changeV">竖屏vertical：9:16（300px:510px）</button>
-      <button @click="downImg">生成图片</button>
+      <button @click="downloadIMG">生成图片</button>
     </div>
     <div class="content">
       <div :class="'img-box ' +css" id="html2canvasRef">
@@ -99,6 +99,7 @@
         </div>
       </div>
     </div>
+    <div class="preview"></div>
   </div>
 </body>
 <script>
@@ -119,14 +120,6 @@
       changeV() {
         this.css = 'vertical';
       },
-      downloadIMG1() {
-        html2canvas(document.querySelector("#html2canvasRef"),
-          { scale: 2, logging: false, useCORS: true, allowTaint: false, proxy: 'https://s21.ax1x.com' }
-        ).then(canvas => {
-          console.log(canvas);
-          // document.body.appendChild(canvas)
-        });
-      },
       downloadIMG() {
         html2canvas(document.querySelector("#html2canvasRef")).then((canvas) => {
           console.log(canvas);
@@ -134,26 +127,12 @@
           // 创建a标签下载图片
           var addElement = document.createElement('a')
           addElement.href = dataURL
-          addElement.download = "下载.png" //设置下载的图片名称
+          addElement.download = this.title+".png" //设置下载的图片名称
 
           document.body.appendChild(addElement)
           addElement.click();
           document.body.removeChild(addElement);
         });
-      },
-      downImg() {
-        html2canvas(document.querySelector('#html2canvasRef')).then(canvas => {
-          const imgUrl = canvas.toDataURL('image/jpeg')
-          const image = document.createElement('img')
-          image.src = imgUrl
-          // 将生成的图片放到 类名为 content 的元素中
-          document.querySelector('.content').appendChild(image)
-          const a = document.createElement('a')
-          a.href = imgUrl
-          // a.download 后面的内容为自定义图片的名称
-          a.download = 'code_download'
-          a.click()
-        })
       },
     }
   })
